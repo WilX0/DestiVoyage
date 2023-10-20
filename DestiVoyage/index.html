@@ -1,0 +1,226 @@
+<!-- //////////////////REMARQUES/////////////////////////// -->
+<!-- 
+    1- dans la navbarre: le menu sandwitch ne se remballe pas 
+    2- je n'arrive pas à mettre deux tailles differentes pour le H1 du carousel 
+    3- le carousel content est trop haut dans un petit ecran
+ -->
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DestiVoyage</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <div class="header">
+        <!--////////////////////////////////////////// LA NAVBARRE -->
+        <nav class="lanav navbar navbar-expand-lg">
+            <div class="container">
+                <img src="images/Logo.png" class="navbar-brand" alt="Logo DestiVoyage" id="idlogo">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" aria-current="page" href="#">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#">Destinations</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="#">Contact</a>
+                        </li>
+                    </ul>
+                    <button type="button" class="btn btn-outline-light">Se connecter</button><button type="button"
+                        class="btn btn-outline-light">S'inscrire</button>
+                </div>
+            </div>
+        </nav>
+        <!--///////////////////////////////////////////LE CAROUSEL -->
+        <div id="carouselExampleCaptions" class="mon_carousel carousel slide">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="images/bgNav.jpg" class=" w-100" alt="...">
+                    <div class="macaption carousel-caption">
+                        <div class="container">
+                            <div class="row justify-content-center align-items-center" style="height: 300px;">
+                                <div class="col text-center">
+                                    <h1 id="destitle">DestiVoyage</h1>
+                                    <p id="paragrph">Les bonnes choses arrivent à ceux qui réservent des vols !</p>
+                                    <button type="button" class="btn btn-primary">Book Now</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/bgNav.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                  <h1></h1>
+                  <p></p>
+                </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/bgNav.jpg" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                  <h1></h1>
+                  <p></p>
+                </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    <!-- ///////////////////////////////////////////////////MAIN///////////////////////// -->
+    <main class="main container-fluid">
+        <div class="partie1 row">
+            <div class="row">
+                <div class="col">
+                    <h4 id="cardtitle">Nous mettons à votre disposition</h4>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col text-center">
+                        <div class="cards row">
+                            <div class="col-sm-12 col-md-4">
+                                <div class="style-small card">
+                                    <a href="#"><img src="images/map.jpg" class="card-img-top" alt="..."></a>
+                                    <div class="card-body">
+                                        <h5>Les meilleurs vols</h5>
+                                        <p class="card-text">découvrez les meilleurs vols selon vos préférences</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-4">
+                                <div class="style-small card">
+                                    <a href="#"><img src="images/plane.jpg" class="card-img-top" alt="..."></a>
+                                    <div class="card-body">
+                                        <h5>Notre blog</h5>
+                                        <p class="card-text">Laissez vous guider par la passion du voyage</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-4">
+                                <div class="style-small card">
+                                    <a href="#"><img src="images/paysage.jpg" class="card-img-top" alt="..."></a>
+                                    <div class="card-body">
+                                        <h5>Nouvelles destinations</h5>
+                                        <p class="card-text">Nous vous proposons des destinations qui pourraient vous plaire selon votre dernière</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+        </div>
+        <div class="partie2 container">
+            <div class="style-small row">
+                <div class="col">
+                    <div class="image-wrapper">
+                        <img class="imagespartie2" src="images/nyc1.jpg" alt="" id="img1">
+                        <div class="overlay">
+                            <p>Découvrez la ville de new york</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="image-wrapper">
+                        <img class="imagespartie2" src="images/4c8b3a79a7e953d7a7d0d50f8538c3ee.jpg" alt="" id="img2">
+                        <div class="overlay">
+                            <p>La Turquie?</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="image-wrapper">
+                        <img class="imagespartie2" src="images/nyc.jpg" alt="" id="img3">
+                        <div class="overlay">
+                            <p>NEY YORK!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="image-wrapper">
+                        <img class="imagespartie2" src="images/pariiiis.jpg" alt="" id="img4">
+                        <div class="overlay">
+                            <p>Une balade à Paris?</p>
+                        </div>
+                    </div>
+                </div>
+               </div>
+            </div>
+        </div>
+        
+    </main>
+    <!-- /////////////////////////////////////////////// FOOTER -->
+    <div class="container-fluid" id="footer">
+        <footer class="footer py-3 my-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col text-center">
+                        <img src="images/Logo.png" class="navbar-brand" alt="Logo DestiVoyage" id="logofooter">
+                    </div>
+                </div>
+            </div>
+            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+                <li class="nav-item"><a href="#" class="fnav nav-link px-2 text-body-secondary">Destinations</a></li>
+                <li class="nav-item"><a href="#" class="fnav nav-link px-2 text-body-secondary">Blog</a></li>
+                <li class="nav-item"><a href="#" class="fnav nav-link px-2 text-body-secondary">Les Meilleurs Vols</a>
+                </li>
+                <li class="nav-item"><a href="#" class="fnav nav-link px-2 text-body-secondary">Nous contacter</a>
+                </li>
+                <li class="nav-item"><a href="#" class="fnav nav-link px-2 text-body-secondary">About</a></li>
+            </ul>
+            <h4 id="slogan">Découverte,inspiration,voyage</h4>
+            <p class="text-center text-body-secondary">&copy; 2023 Made by The Crew</p>
+            <div class="container">
+                <div class="row">
+                    <div class="col text-center">
+                        <a href="#"><img src="images/facebook.png" alt="icone facebook"></a>
+                        <a href="#"><img src="images/pinterest.png" alt="icone pinterest"></a>
+                        <a href="#"><img src="images/instagram.png" alt="icone instagram"></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

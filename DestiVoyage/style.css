@@ -1,0 +1,142 @@
+@import url(https://fonts.googleapis.com/css?family=Berkshire+Swash:regular);
+@import url(https://fonts.googleapis.com/css?family=Racing+Sans+One:regular);
+
+body {
+    font-family: "Berkshire Swash";
+    color: white;
+}
+
+/* HEADER */
+/* LA NAVBARRE */
+.lanav {
+    position: absolute;
+    top: 3px;
+    width: 100%;
+    z-index: 999;
+}
+
+/* CAROUSEL */
+.mon_carousel {
+    /* position: absolute; */
+    top: 0px;
+    margin-bottom: -30px;
+}
+
+#paragrph {
+    font-family: initial;
+}
+
+/* LE FOOTER  */
+#footer {
+    background-color: #A1D2E6;
+    /* margin-top: 700px; */
+    margin-bottom: 0px;
+}
+
+#slogan {
+    font-family: "Racing Sans One";
+    text-align: center;
+    color: white;
+}
+
+.fnav {
+    color: white;
+}
+
+/*MAIN */
+.main {
+    padding-top: 30px;
+}
+
+#cardtitle {
+    text-align: center;
+    padding: 20px 0 20px 0;
+}
+
+.card img {
+    width: 262px;
+height: 278px;
+flex-shrink: 0;
+    border-radius: 40px;
+
+}
+
+.card {
+    width: 337px;
+    height: 458px;
+    flex-shrink: 0;
+    border-radius: 40px;
+    padding-top: 30px;
+    margin-bottom: 40px;
+}
+
+.card p {
+    text-align: justify;
+}
+
+.card-text {
+    color: #BCBABE;
+}
+
+.partie1 {
+    background-color: #A1D2E6;
+}
+
+.partie2 {
+
+    margin-top: 50px;
+}
+
+.imagespartie2 {
+    width: 289.35px;
+    height: 500px;
+    border-radius: 100px;
+    flex-shrink: 0;
+    /* background: url(<path-to-image>), lightgray 50% / cover no-repeat; */
+}
+/* //////////////////////////////////////////////////DYNAMIC PARTIE2 */
+.image-wrapper {
+    position: relative;
+    overflow: hidden;
+    width: 289.35px;
+    height: 500px;
+    border-radius: 100px;
+}
+
+.imagespartie2 {
+    max-width: 100%;
+    transition: transform 0.3s;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.overlay p {
+    color: #fff;
+    text-align: center;
+    font-size: 18px;
+}
+
+.image-wrapper:hover .imagespartie2 {
+    transform: scale(1.1);
+}
+
+.image-wrapper:hover .overlay {
+    opacity: 1;
+}
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* Style pour les petits écrans */
+.style-small {
+    margin-left: 50px;
+}
