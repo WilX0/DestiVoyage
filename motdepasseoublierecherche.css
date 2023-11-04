@@ -58,3 +58,8 @@ form {
     border-radius: 10px;
     width: 30%;
 }
+input::placeholder {
+    font-family: Arial,sans-serif; /* Remplacez "VotrePolice" par le nom de la police souhaitée */
+    font-weight: 600;
+    color: #999; /* Modifiez la couleur du texte de l'attribut "placeholder" */
+}
