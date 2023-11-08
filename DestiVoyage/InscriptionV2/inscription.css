@@ -1,0 +1,108 @@
+@import url(https://fonts.googleapis.com/css?family=Berkshire+Swash:regular);
+@import url(https://fonts.googleapis.com/css?family=Racing+Sans+One:regular);
+
+/* Ajoutez du CSS personnalisé */
+body {
+    font-family: "Berkshire Swash";
+    background-color: #f1f1f1;
+    margin: 0;
+    /* Réinitialisez la marge par défaut */
+}
+
+.centered-div {
+    position: relative;
+    /* Utilisez position relative */
+    margin-top: 5%;
+    width: 70%;
+    margin: 0 auto;
+    /* Centrez horizontalement */
+    padding: 20px;
+    /* text-align: center; */
+    background-color: #ffffff;
+    box-shadow: 15px 5px 5px 5px rgb(0, 0, 0, 0.4);
+    border-radius: 33px;
+}
+
+h1 {
+    color: #1995AD;
+    font-weight: 500;
+    /* text-align: center; */
+}
+
+#petit {
+    text-align: center;
+}
+
+.jsp {
+    width: 75%;
+    height: auto;
+}
+
+.form-control {
+    padding-left: 30px;
+    background-color: #d9d9d9;
+    max-width: 100%;
+    /* width: 100%; */
+    height: 52px;
+    margin: 0 auto;
+    border: 1px solid #f1f1f2;
+    border-top: 2px solid #f1f1f1;
+    border-radius: 33px;
+}
+
+#nom::placeholder,
+#prenom::placeholder,
+#email::placeholder,
+#login::placeholder,
+#mot-de-passe2::placeholder,
+#mot-de-passe3::placeholder,
+#date::placeholder {
+    color: rgb(167, 167, 167);
+    /* padding-left: 10px; */
+}
+
+input:focus {
+    outline: none;
+    /* Supprime la bordure lorsqu'un champ de saisie est sélectionné */
+}
+
+.custom-radio {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.custom-radio input[type="radio"] {
+    display: none;
+}
+
+.custom-radio label::before {
+    content: "";
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #1995AD;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.espace {
+    margin-top: 5%;
+}
+
+.custom-radio input[type="radio"]:checked+label::before {
+    background-color: #1995AD;
+}
+
+a {
+    color: #1995AD;
+}
+
+#btn-inscrip {
+    background-color: #1995AD;
+    color: #f1f1f2;
+    height: 40px;
+    /* Ajustez la hauteur pour une meilleure expérience sur mobile */
+    width: 100%;
+    border: 1px solid #1995AD;
+    border-radius: 33px;
+}
