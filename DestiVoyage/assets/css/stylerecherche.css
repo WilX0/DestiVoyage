@@ -1,0 +1,54 @@
+@import url(https://fonts.googleapis.com/css?family=Berkshire+Swash:regular);
+@import url(https://fonts.googleapis.com/css?family=Racing+Sans+One:regular);
+
+/* PARTIE2 */
+.partie2 {
+    position: relative;
+}
+
+.bg {
+    background-size: cover;
+    height: 80vh;
+    filter: blur(10px);
+    position: relative;
+
+}
+
+.bg img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.masearchbox {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    border-radius: 20px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    bottom: 220px;
+    left: 20px;
+    z-index: 999;
+    background-color: white;
+    width: 400px;
+    height: 220px;
+}
+
+#titrevol {
+    color: black;
+    font-family: "Berkshire Swash";
+    text-align: center;
+}
+.btn{
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    background: #fff;
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.4s ease-in-out;
+}
