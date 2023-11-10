@@ -15,6 +15,6 @@
 
 
 
-    <script src="apimeteo.js"></script>
+    <script src="assets/js/apimeteo.js"></script>
 </body>
 </html>
