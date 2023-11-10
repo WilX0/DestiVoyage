@@ -21,9 +21,8 @@ var divlog = document.getElementById('errordiv2');
 
 nom.addEventListener("input", function () {
     var named = nom.value;
-    if (!nomRegex.test(named) || named.length < 2) {
-        // Affichez un message d'erreur
-        errornom.textContent = "Le nom n'est pas valide. Il doit contenir uniquement des lettres et taille sup a 3.";
+    if (!nomRegex.test(named)) {
+        errornom.textContent = "Le nom n'est pas valide.";
         divnom.classList.remove('d-none');
         divnom.classList.add('text-danger');
         divnom.classList.add('small');
@@ -32,17 +31,21 @@ nom.addEventListener("input", function () {
         divnom.classList.add('d-none');
     }
 });
+
+var errorpre = document.getElementById("errorprenom");
+var divpre = document.getElementById("errordivpre");
+
 prenom.addEventListener("input", function () {
     var named2 = prenom.value;
-    if (!nomRegex.test(named2) || named2.length < 3) {
+    if (!nomRegex.test(named2)) {
         // Affichez un message d'erreur
-        errornom.textContent = "Le prenom n'est pas valide. Il doit contenir uniquement des lettres et taille sup a 3.";
-        divnom.classList.remove('d-none');
-        divnom.classList.add('text-danger');
-        divnom.classList.add('small');
+        errorpre.textContent = "Le prenom n'est pas valide. Il doit contenir uniquement des lettres.";
+        divpre.classList.remove('d-none');
+        divpre.classList.add('text-danger');
+        divpre.classList.add('small');
     } else {
-        errornom.textContent = "";
-        divnom.classList.add('d-none');
+        errorpre.textContent = "";
+        divpre.classList.add('d-none');
     }
 });
 // 
@@ -54,6 +57,7 @@ function checkLoginAvailability() {
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
             var response = xhr.responseText;
+            // console.log(response);
             var logins = JSON.parse(response);
             console.log(logins);
             var usernameExists = false;
@@ -65,8 +69,9 @@ function checkLoginAvailability() {
             }
 
             if (usernameExists) {
-                console.log("coucou");
+                // console.log("coucou");
                 divlog.classList.remove("d-none");
+                divlog.classList.add('text-danger');
                 errorlog.textContent = "Ce login existe déjà.";
             } else {
                 divlog.classList.add("d-none");
@@ -79,32 +84,48 @@ function checkLoginAvailability() {
     };
     xhr.send();
 }
-// login.addEventListener("input", function () {
+function checkMailAvailability() {
+    var xhr = new XMLHttpRequest();
+    var mai = email.value;
+    xhr.open("GET", "check_mail.php", true);
+    // xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            var response = xhr.responseText;
+            console.log(response);
+            var mails = JSON.parse(response);
+            // console.log(logins);
+            var mailExists = false;
+            for (var i = 0; i < mails.length; i++) {
+                if (mails[i].email === mai) {
+                    mailExists = true;
+                    break;
+                }
+            }
 
-//     checkLoginAvailability();
-// });
+            if (mailExists) {
+                divmail.classList.remove("d-none");
+                divmail.classList.add('text-danger');
+                errormail.textContent = "Email existe déjà.";
+            } else {
+                divmail.classList.add("d-none");
+            }
 
 
-// login.addEventListener("input", function () {
-//     var log = login.value;
-//     if (!loginRegex.test(log) || log.length < 3) {
-//         errorlog.textContent = "Le login n'est pas valide. Il doit contenir uniquement lettres, chiffres, tirets et underscores, 4 à 20 caractères.";
-//         divlog.classList.remove('d-none');
-//         divlog.classList.add('text-danger');
-//         divlog.classList.add('small');
-//     } else {
-//         errorlog.textContent = "";
-//         divlog.classList.add('d-none');
-//     }
-// });
-email.addEventListener("input", function () {
+
+        }
+    };
+    xhr.send();
+}
+
+function checkMail() {
     var lg = email.value;
     if (!lg) {
         errormail.textContent = "";
         divmail.classList.add('d-none');
 
     } else
-        if (!emailRegex.test(lg) || lg.length < 3) {
+        if (!emailRegex.test(lg)) {
             errormail.textContent = "le format de l'email n'est pas respecter";
             divmail.classList.remove('d-none');
             divmail.classList.add('text-danger');
@@ -112,8 +133,10 @@ email.addEventListener("input", function () {
         } else {
             errormail.textContent = "";
             divlog.classList.add('d-none');
+            checkMailAvailability();
         }
-});
+}
+email.addEventListener('input', checkMail);
 
 var divmdp = document.getElementById("errormdp");
 var err = document.getElementById("errormdp3");
@@ -153,6 +176,7 @@ function validatePassword() {
 function updateErrorMessages() {
     if (errors.length > 0) {
         err.innerHTML = errors.join('<br>');
+        divmdp.classList.add('text-danger');
         divmdp.classList.remove('d-none');
     } else {
         err.innerHTML = '';
@@ -185,54 +209,79 @@ function verifierLogin() {
 
 login.addEventListener("input", verifierLogin);
 
-var dateCourante = new Date();
-var annee = dateCourante.getFullYear();
-var mois = (dateCourante.getMonth() + 1).toString().padStart(2, '0');
-var jour = dateCourante.getDate().toString().padStart(2, '0');
-var dateFormatee = annee + '-' + mois + '-' + jour;
+// var dateCourante = new Date();
+// var annee = dateCourante.getFullYear();
+// var mois = (dateCourante.getMonth() + 1).toString().padStart(2, '0');
+// var jour = dateCourante.getDate().toString().padStart(2, '0');
+// var dateFormatee = annee + '-' + mois + '-' + jour;
 
-var dat = document.getElementById('date');
-dat.value = dateFormatee;
-var today = new Date().toISOString().split('T')[0];
-dat.setAttribute("max", today);
-dat.addEventListener("input", function () {
-    var datechoice = new Date(dat.value);
-    var date2 = new Date();
-    if (datechoice > date2) {
+// var dat = document.getElementById('date');
+// dat.value = dateFormatee;
+// var today = new Date().toISOString().split('T')[0];
+// dat.setAttribute("max", today);
+// dat.addEventListener("input", function () {
+//     var datechoice = new Date(dat.value);
+//     var date2 = new Date();
+//     if (datechoice > date2) {
 
-        alert("erreur date: date choisie est superieur a la date Courante .Veuillez choisir une autre date svp");
-        dat.value = dateFormatee;
-        dat.focus();
-    }
+//         alert("erreur date: date choisie est superieur a la date Courante .Veuillez choisir une autre date svp");
+//         dat.value = dateFormatee;
+//         dat.focus();
+//     }
 
-});
-var form = document.getElementById("form");
+// });
+// var form = document.getElementById("form");
 
-form.addEventListener("submit", function (event) {
-    var log = login.value;
+// function formula(event) {
+//     var log = login.value;
+//     var named = nom.value;
+//     var lg = email.value;
+//     var named2 = prenom.value;
+//     var password = password2.value;
+//     var confirmPassword = passwordconfirm.value;
+//     var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+//     var passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[a-zA-Z\d!@#$%^&*]{8,}$/;
+
+//     if (!named.match(prenomRegex) || !named2.match(prenomRegex) || !lg.match(emailRegex) || !password.match(passwordRegex) || !confirmPassword.match(passwordRegex) || password !== confirmPassword) {
+//         event.preventDefault(); // Prevent the form submission
+//         alert("Il y a un problème avec le formulaires.");
+//     }
+//     if (named === '' || named2 === '' || log === '' || lg === '' || password === '' || confirmPassword === '') {
+//         event.preventDefault(); // Empêche l'envoi du formulaire
+
+//         // Affiche un message d'erreur
+//         alert('Veuillez remplir tous les champs et choisir une option du genre.');
+//     }
+
+
+// }
+// form.addEventListener('submit', formula);
+function onSubmit(token) {
     var named = nom.value;
-    var lg = email.value;
     var named2 = prenom.value;
+    var log = login.value;
+    var lg = email.value;
     var password = password2.value;
     var confirmPassword = passwordconfirm.value;
-    var homme = document.getElementById('homme').checked;
-    var femme = document.getElementById('femme').checked;
+    var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    var passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[a-zA-Z\d!@#$%^&*]{8,}$/;
+    var hasErrors = false;
 
-    if (!loginRegex.test(log) || !named.test(nomRegex) || !lg.test(emailRegex) || !named2.test(nomRegex) || !password.test(passwordRegex) || !confirmPassword.test(passwordRegex)) {
-        event.preventDefault(); // Empêche l'envoi du formulaire
-        alert("ya un probleme !!!");
-
+    // Valider les champs ici
+    if (!named.match(prenomRegex) || !named2.match(prenomRegex) || !lg.match(emailRegex) || !password.match(passwordRegex) || !confirmPassword.match(passwordRegex) || password !== confirmPassword) {
+        hasErrors = true;
+        alert("Il y a un problème avec le formulaire.");
     }
-    if (named === '' || named2 === '' || log === '' || lg === '' || password === '' || confirmPassword === '' || date === '' || (!homme && !femme)) {
-        event.preventDefault(); // Empêche l'envoi du formulaire
-
-        // Affiche un message d'erreur
+    if (named === '' || named2 === '' || log === '' || lg === '' || password === '' || confirmPassword === '') {
+        hasErrors = true;
         alert('Veuillez remplir tous les champs et choisir une option du genre.');
     }
 
-    // if()
-});
-
+    if (!hasErrors) {
+        // Si aucune erreur n'est détectée, soumettre le formulaire
+        document.getElementById("form").submit();
+    }
+}
 // login.addEventListener("input", function () {
 //     var username = login.value;
 //     var xhr = new XMLHttpRequest();

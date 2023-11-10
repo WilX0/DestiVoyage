@@ -2,6 +2,7 @@
 require "fonction.php";
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 
 // use Google_Client;
 require_once "phpmailer/Exception.php";
@@ -13,22 +14,44 @@ $mail=new PHPMailer(true);
 $errors = array();
 
 if($_SERVER['REQUEST_METHOD'] == "POST"){
-
 	// $errors = signup($_POST);
+    if (isset($_POST['g-recaptcha-response']) && !empty($_POST['g-recaptcha-response'])) {
+        $recaptcha_response = $_POST['g-recaptcha-response'];
+        $remoteip = $_SERVER['REMOTE_ADDR'];
+
+        $url = "https://www.google.com/recaptcha/api/siteverify";
+        $data = array(
+            'secret' => key3,
+            'response' => $recaptcha_response,
+            'remoteip' => $remoteip
+        );
+
+        $options = array(
+            'http' => array(
+                'header' => "Content-type: application/x-www-form-urlencoded\r\n",
+                'method' => 'POST',
+                'content' => http_build_query($data),
+            ),
+        );
+
+        $context = stream_context_create($options);
+        $result = file_get_contents($url, false, $context);
+        $responseKeys = json_decode($result, true);
+
+        if (isset($responseKeys["success"]) && $responseKeys["success"] === true) {
     $errors = signup($_POST);
-	if(empty($errors)){
+
+    
+	if(empty($errors) && verifier_domaine($_POST['email'])){
         $arr['username'] = $_POST['username'];
 		$arr['email'] = $_POST['email'];
         $arr['nom'] = $_POST['nom'];
         $arr['prenom'] = $_POST['prenom'];
-        $arr['genre'] = $_POST['genre'];
         $arr['verified']=0;
 		$arr['password'] = hash('sha256',$_POST['password']);
-		$arr['date'] = $_POST['daten'];
 		$arr['code'] = rand(10000, 99999);
-        $arr['genre'] = $_POST['genre'];
         $arr['date_inscription']=date('Y-m-d H:i:s');
-        $query = "insert into user (email,login,nom,prenom,genre,email_verified,password,date_naiss,code_confirmation,date_inscription) values (:email,:username,:nom,:prenom,:genre,:verified,:password,:date,:code,:date_inscription)";
+        $query = "insert into user (email,login,nom,prenom,email_verified,password,code_confirmation,date_inscription) values (:email,:username,:nom,:prenom,:verified,:password,:code,:date_inscription)";
         database_run($query, $arr);
         try{
             $mail->isSMTP();
@@ -55,7 +78,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
             
             $mail->setFrom("kenzimebarki2@gmail.com");
             $mail->Subject = "Confirmation INSCRIPTION";
-            $mail->Body = "VOICI VOTRE CODE POUR CONFIRMER VOTRE INSCRIPTION "." "."http://dwavance/confirm.php?code=".$arr['code'];
+            $mail->Body = "VOICI VOTRE CODE POUR CONFIRMER VOTRE INSCRIPTION "." "."http://destivoyage.alwaysdata.net/confirm.php?code=".$arr['code'];
             $mail->send();
             echo "<p>un email avec un lien de confirmation a ete envoyer a votre adresse mail.</p>";
 
@@ -63,16 +86,17 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
             $message = ''. $mail->ErrorInfo;
         }
 
-        
+        header("Location: email.html");
+        exit();
     
-	}
+	}else{
+        echo "<script>alert('Erreur avec l\'adresse e-mail.');</script>";
+        header("Location: inscription.php");
+    }
 }
-        // $_SESSION['mdp'] = $_POST['password'];
-        // $_SESSION['date'] = date('Y-m-d');
-		// $_SESSION['LOGGED_IN'] = true;
-		// header("Location: verifier.php");
-		// die;
-	
+    }
+}
+
 
 ?>
 
@@ -83,12 +107,16 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <!-- <link rel="shortcut icon" href="images/" type="image/x-icon"> -->
     <link rel="stylesheet" href="inscription.css">
+    <link rel="stylesheet" href="stylefooter.css">
+    <link rel="stylesheet" href="stylenav.css">
     <title>Page inscription</title>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
 </head>
 
 <body>
-   
+    <?php include("lanavbar.php")?>
         <main class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8">
@@ -107,8 +135,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                             <div class="col">
                                 <input type="text" class="form-control" id="prenom" placeholder="Votre prénom" name="prenom" required>
                             </div>
-                            
-                            <div id="errordiv" class="mb-3 d-none"><p id="errornom"></p></div>
+                            <div id="errordivpre" class="mb-2 d-none"><p id="errorprenom"></p></div>
+                            <div id="errordiv" class="mb-2 d-none"><p id="errornom"></p></div>
                         </div>
                         <div class="mb-3">
                             <input type="text" class="form-control " id="login" placeholder="Votre login" name="username" required>
@@ -129,33 +157,15 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
                                 <!-- <div id="errormdp" class="mb-3 d-none"><p id="errormdp3"></p></div> -->
                         </div>
                         <div id="errormdp" class="mb-3 d-none"><p id="errormdp3"></p></div>
-                        <div class="mb-3">
-                            <label for="date">Date de naissance :</label>
-                            <input type="date" class="form-control " id="date" name="daten" required>
-                        </div>
-                        <div class="mb-3 d-flex justify-content-center align-items-center">
-                            <div class=" form-check form-check-inline">
-                            <label for="homme">Homme</label>
-                            <input type="radio" id="homme" name="genre" value="homme" required>
-
-                        </div>
-                        <div class="form-check form-check-inline">
-
-                            <label for="femme">Femme</label>
-                            <input type="radio" id="femme" name="genre" value="femme" required>
-                        </div>
-                </div>
-                <!-- <button type="submit" class="g-recaptcha btn btn-primary" 
-                                    data-sitekey="6Le5yPIoAAAAAEbt9BcLcXuzVVVzmpahOixv1Wye" 
-                                    data-callback='onSubmit' 
-                                    data-action='submit'>Submit</button> -->
-
-                <input type="submit" class="form-control g-recaptcha btn btn-primary" data-sitekey="6LeINvYoAAAAACbwqMmU6wD6Eiytu33aD_aAhQmp" 
-                                    data-callback='onSubmit' 
-                                    data-action='submit' id="btn-inscrip" value="S'inscrire">
+                        <input type="submit" id="btn-inscrip" class="g-recaptcha" 
+        data-sitekey="6LfGPQkpAAAAACXv0dhGu7mknJQ6zZlg7nMNwY9s" 
+        data-callback='onSubmit' 
+        data-action='submit' value="S'inscrire">
                 </form>
                 <p>Vous avez déjà un compte ? <a href="connexion.html">Se connecter</a></p>
                 </div>
+                </div>
+                
             </div>
     </main>
     <div>
@@ -165,13 +175,14 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
             <?php endforeach;?>
         <?php endif;?>
     </div>
-    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <?php include("lefooter.php") ?>
+
+  
     <script>
-        function onSubmit(token) {
-        document.getElementById("form").submit();
-    }
-    </script>
-    
+//    function onSubmit(token) {
+//     //  document.getElementById("form").submit();
+//    }
+ </script>
     <script src="controleinscri.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

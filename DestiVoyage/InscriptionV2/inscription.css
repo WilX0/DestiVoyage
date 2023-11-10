@@ -4,17 +4,26 @@
 /* Ajoutez du CSS personnalisé */
 body {
     font-family: "Berkshire Swash";
-    background-color: #f1f1f1;
+    background-image: url("images/background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-color: #f1f1f1; */
     margin: 0;
+    padding: 0;
     /* Réinitialisez la marge par défaut */
 }
 
+main {
+    /* background-image: url("images/background.png"); */
+    width: 100%;
+}
+
 .centered-div {
-    position: relative;
+    /* position: relative; */
     /* Utilisez position relative */
-    margin-top: 5%;
-    width: 70%;
-    margin: 0 auto;
+    /* margin-top: 5%; */
+    width: 80%;
+    margin: 80px auto;
     /* Centrez horizontalement */
     padding: 20px;
     /* text-align: center; */
