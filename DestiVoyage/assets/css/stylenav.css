@@ -1,0 +1,15 @@
+@import url(https://fonts.googleapis.com/css?family=Berkshire+Swash:regular);
+@import url(https://fonts.googleapis.com/css?family=Racing+Sans+One:regular);
+
+body {
+    font-family: "Berkshire Swash";
+    color: white;
+}
+/* HEADER */
+/* LA NAVBARRE */
+.lanav {
+    position: fixed;
+    background-color: #A1D2E6;
+    top: 3px;
+    width: 100%;
+}
