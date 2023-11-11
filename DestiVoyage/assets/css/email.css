@@ -1,9 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Berkshire+Swash:regular);
-        @import url(https://fonts.googleapis.com/css?family=Racing+Sans+One:regular);
 
         body {
             font-family: "Berkshire Swash";
-            background-color: #f1f1f1;
+            background: url(../../images/background1.png);
+            background-size: cover;
+
         }
         .contenaire{
             background-color: #fff;
@@ -40,7 +41,7 @@
             background-color: white;
             padding: 10px;
             border-radius: 26px;
-            box-shadow: -1px 2px 10px 3px 
+            box-shadow: -1px 2px 10px 3px
 rgba(0, 0, 0, 0.3) inset;
         }
         
