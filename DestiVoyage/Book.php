@@ -103,7 +103,7 @@
     </div>
     <div id="result-container" class="flight-list">
     <!-- Les résultats de la recherche seront affichés ici -->
-</div>
+    </div>
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["search"])) :
     $departure = $_GET['userLocation'];

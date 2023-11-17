@@ -72,7 +72,9 @@ echo $apiKey;
 // $baseUrl = "https://test.api.amadeus.com";
 
 // Fonction pour récupérer les détails du vol
+
 function getFlightDetails($departure,$destination,$date,$nbradulte,$class) {
+    $result = '<div class="flight-list">';
     global $apiKey;
     // Construire l'URL de la requête
     // $url = "$baseUrl/v1/flight-offers?originLocationCode=$departure&destinationLocationCode=$destination&departureDate=$date";
@@ -98,7 +100,7 @@ function getFlightDetails($departure,$destination,$date,$nbradulte,$class) {
     $data = json_decode($response, true);
 
 if (isset($data['data'])) {
-    $result = '<div class="flight-list">';
+    
     echo $url; 
     foreach ($data['data'] as $flight) {
         foreach ($flight['itineraries'] as $itinerary) {
@@ -129,12 +131,12 @@ if (isset($data['data'])) {
 }
     }
     $result .= '</div>';
-            echo $result;
+            //echo $result;
     // echo '</div>';
 } else {
     echo "Aucun vol disponible pour ces informations.";
 }
-
+echo '<div id="result-container" class="flight-list">' . $result . '</div>';
     // Fermer la session cURL
     curl_close($ch);
 }
