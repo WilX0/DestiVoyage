@@ -1,12 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Berkshire+Swash:regular);
 
 .section {
-  position: relative;
   height: 100vh;
 }
 
 .section .section-center {
-  position: absolute;
   top: 50%;
   left: 0;
   right: 0;
@@ -23,7 +21,6 @@
 }
 
 .booking-form {
-  position: relative;
   max-width: 912px;
   width: 100%;
   margin: auto;
@@ -34,7 +31,6 @@
 }
 
 .booking-form .booking-bg {
-  position: absolute;
   left: 25px;
   top: -25px;
   bottom: -25px;
@@ -51,7 +47,6 @@
 
 .booking-form .booking-bg::before {
   content: '';
-  position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
@@ -67,7 +62,6 @@
 .booking-form .form-header {
   margin-bottom: 30px;
   margin-top: 60px;
-  position: relative;
   z-index: 20;
 }
 
@@ -87,7 +81,6 @@
 }
 
 .booking-form .form-group {
-  position: relative;
   margin-bottom: 20px;
 }
 
@@ -98,7 +91,6 @@
 
 .booking-form input[type="radio"] + label,
 .booking-form input[type="checkbox"] + label {
-  position: relative;
   padding-left: 30px;
   cursor: pointer;
   display: inline-block;
@@ -108,7 +100,6 @@
 .booking-form input[type="radio"] + label::before,
 .booking-form input[type="checkbox"] + label::before {
   content: '';
-  position: absolute;
   left: 0;
   top: 0;
   width: 20px;
@@ -129,7 +120,6 @@
 
 .booking-form input[type="radio"] + label::after {
   content: '';
-  position: absolute;
   left: 6px;
   top: 6px;
   width: 8px;
@@ -247,7 +237,6 @@
 
 @media only screen and (max-width: 768px) {
   .booking-form .booking-bg {
-    position: relative;
     left: 0;
     right: 0;
     bottom: 0;
