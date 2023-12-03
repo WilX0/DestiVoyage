@@ -1,0 +1,125 @@
+@import url(https://fonts.googleapis.com/css?family=Berkshire+Swash:regular);
+
+:root {
+  --background-color: #fff; /* Couleur de fond par défaut */
+  --text-color: #000; /* Couleur de texte par défaut */
+}
+[data-theme="dark"] {
+  --background-color: #333; /* Couleur de fond pour le thème sombre */
+  --text-color: #fff; /* Couleur de texte pour le thème sombre */
+}
+
+body {
+    background: url(background.png);
+    background-size: cover;
+    font-family: "Berkshire Swash";
+    background-color: var(--background-color);
+  color: var(--text-color);
+  background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+  }
+
+  .search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+
+  label {
+    background-color: rgba(255, 255, 255, 0.8); 
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    max-width: 600px; 
+    width: 80%; 
+  }
+
+  label input {
+    width: 100%;
+    padding: 15px; 
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 15px; 
+  }
+
+  label button {
+    width: 100%;
+    padding: 15px 20px; 
+    border: none;
+    border-radius: 5px;
+    background-color: #1995AD; 
+    color: #fff;
+    cursor: pointer;
+  }
+
+
+button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+button {
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+
+#theme-light {
+  background-color: #ffffff;
+  color: #333333;
+}
+
+
+#theme-dark {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+button:hover {
+  filter: brightness(90%);
+}
+
+#hotelList {
+  font-family: 'Times New Roman', Times, serif;
+  display: flex;
+  flex-direction: column; /* Stack les éléments les uns sous les autres */
+  align-items: center;
+  gap: 20px;
+}
+
+.hotel-container {
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 70%; /* Ajustez la largeur selon vos besoins */
+  max-width: 600px; /* Ajout d'une largeur maximale pour le rendu sur des écrans larges */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+}
+
+.hotel-info {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.details-button {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.details-button:hover {
+  background-color: #2980b9;
+}
+
