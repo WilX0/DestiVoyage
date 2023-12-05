@@ -1,13 +1,36 @@
-@import url(https://fonts.googleapis.com/css?family=Berkshire+Swash:regular);
+@import url(https://fonts.googleapis.com/css?family=Berkshire+Swash:bold);
+
+body {
+
+
+  background: url(../../images/background.png);
+  background-size: cover;
+  background-position: center;
+  backdrop-filter: blur(10px);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+header {
+  font-family: "Berkshire Swash";
+}
+
+footer {
+  position: fixed;
+  bottom: 0%;
+  width: 100%;
+  clear: both;
+}
 
 .section {
-  position: relative;
+  /* position: relative; */
   height: 100vh;
 }
 
 .section .section-center {
   position: absolute;
   top: 50%;
+  margin: auto;
   left: 0;
   right: 0;
   -webkit-transform: translateY(-50%);
@@ -16,10 +39,8 @@
 
 #booking {
   font-family: 'Times New Roman', Times, serif;
-  background: url(../../images/background.png);
-  background-size: cover; 
-  background-position: center;
-  backdrop-filter: blur(10px);
+  /* background: url(../../images/background.png); */
+
 }
 
 .booking-form {
@@ -31,6 +52,7 @@
   border-radius: 6px;
   -webkit-box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.1);
   box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 60px;
 }
 
 .booking-form .booking-bg {
@@ -92,11 +114,11 @@
 
 .booking-form input[type="radio"],
 .booking-form input[type="checkbox"] {
-  display: none; 
+  display: none;
 }
 
-.booking-form input[type="radio"] + label,
-.booking-form input[type="checkbox"] + label {
+.booking-form input[type="radio"]+label,
+.booking-form input[type="checkbox"]+label {
   position: relative;
   padding-left: 30px;
   cursor: pointer;
@@ -104,8 +126,8 @@
   line-height: 20px;
 }
 
-.booking-form input[type="radio"] + label::before,
-.booking-form input[type="checkbox"] + label::before {
+.booking-form input[type="radio"]+label::before,
+.booking-form input[type="checkbox"]+label::before {
   content: '';
   position: absolute;
   left: 0;
@@ -119,14 +141,14 @@
   transition: background-color 0.3s;
 }
 
-.booking-form input[type="radio"]:checked + label::before,
-.booking-form input[type="checkbox"]:checked + label::before {
+.booking-form input[type="radio"]:checked+label::before,
+.booking-form input[type="checkbox"]:checked+label::before {
   background-color: #1995AD;
   border-color: #1995AD;
 }
 
 
-.booking-form input[type="radio"] + label::after {
+.booking-form input[type="radio"]+label::after {
   content: '';
   position: absolute;
   left: 6px;
@@ -138,7 +160,7 @@
   display: none;
 }
 
-.booking-form input[type="radio"]:checked + label::after {
+.booking-form input[type="radio"]:checked+label::after {
   display: block;
 }
 
@@ -259,10 +281,30 @@
     margin-left: 0;
   }
 }
+
+/* ***************************************************************************************** */
+/* Style pour la mise en page des résultats */
+.flight-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin: 10px;
+  padding: 15px;
+  width: 300px;
+  display: inline-block;
+  vertical-align: top;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2,
+p {
+  margin: 0;
+  padding: 0;
+}
+
 #result-container {
   position: absolute;
-  top: calc(100% + 20px); 
+  top: calc(100% + 20px);
   left: 50%;
   transform: translateX(-50%);
-  
+
 }
