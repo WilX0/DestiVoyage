@@ -26,6 +26,12 @@ function getAccessToken(clientId, clientSecret, apiUrl) {
 
     xhr.send(new URLSearchParams(data));
 }
+
+function displayErrorMessage(message) {
+    var errorContainer = document.getElementById("error-message-container");
+    errorContainer.textContent = message;
+    errorContainer.style.display = "block";
+}
 getAccessToken("nGINyrag4R3hhje0nCS2BqlAhvHR5nL4", "noVlxZGbluLOSQes", "https://test.api.amadeus.com/v1/security/oauth2/token");
 
 // Définissez l'intervalle de rafraîchissement du jeton en millisecondes (12 minutes)
@@ -52,7 +58,7 @@ function searchCities(keywordInput, cityList) {
     if (keyword.length >= 3) {
         // Créez l'URL de la requête avec le mot-clé
         var requestUrl = `${apiUrl}?keyword=${keyword}&max=3&include=AIRPORTS`;
-
+        var response = {};
         // Créez une requête XHR
         const xhr = new XMLHttpRequest();
         xhr.open("GET", requestUrl, true);
@@ -62,7 +68,7 @@ function searchCities(keywordInput, cityList) {
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4 && xhr.status === 200) {
                 // Effacez la liste précédente des villes
-                var response = JSON.parse(xhr.responseText);
+                response = JSON.parse(xhr.responseText);
                 if (Array.isArray(response.data)) {
                     cityList.innerHTML = "";
                     // Analysez la réponse JSON
@@ -97,6 +103,8 @@ function searchCities(keywordInput, cityList) {
                         // cityList.appendChild(listItem);
                     });
                 } else {
+                    // var errorMessage = "Aucune donnée de ville disponible dans la réponse.";
+                    // displayErrorMessage(errorMessage);
                     console.error("Aucune donnée de ville disponible dans la réponse.");
                 }
             }
@@ -107,37 +115,141 @@ function searchCities(keywordInput, cityList) {
     } else {
         cityList.innerHTML = "";
     }
+
 }
 
+
+// keywordInput1.addEventListener("blur", videul);
 // getAccessToken("nGINyrag4R3hhje0nCS2BqlAhvHR5nL4", "noVlxZGbluLOSQes", "https://test.api.amadeus.com/v1/security/oauth2/token");
 // Ajoutez un gestionnaire d'événements pour le changement de valeur dans l'élément d'entrée
 var keywordInput1 = document.getElementById("userLocation");
 var cityList1 = document.getElementById("suggestionsList");
-
+// keywordInput1.addEventListener("blur", videul);
 var keywordInput2 = document.getElementById("arr");
 var cityList2 = document.getElementById("suggestionsList2");
+function videul() {
+    cityList1.innerHTML = "";
+    cityList2.innerHTML = "";
+}
+// keywordInput1.addEventListener("blur", videul);
 
 keywordInput1.addEventListener("input", function () {
     searchCities(keywordInput1, cityList1);
 });
 cityList1.addEventListener("click", function (event) {
     var clickedElement = event.target;
+
     // Vérifiez si l'élément cliqué est une suggestion
     if (clickedElement.tagName === 'LI' && clickedElement.parentNode === cityList1) {
-        var airportCode = clickedElement.textContent.trim().split(':')[1].trim();
-        keywordInput1.value = airportCode;
-        cityList1.innerHTML = "";
+        var airportInfo = clickedElement.textContent;
+
+        // Utilisez une expression régulière pour extraire la ville et le code
+        var match = airportInfo.match(/^(.*),\s*Aéroport\s*:\s*(.*)$/);
+
+        if (match && match.length === 3) {
+            var cityName = match[1].trim();
+            var airportCode = match[2].trim();
+
+            keywordInput1.value = cityName + ", " + airportCode;
+            cityList1.innerHTML = "";
+        }
     }
 });
+// keywordInput1.addEventListener("blur", function (event) {
+
+//     if (!event.relatedTarget || (event.relatedTarget.id !== "suggestionsList" && event.relatedTarget !== keywordInput1)) {
+//         cityList1.innerHTML = "";
+//     }
+// });
+
+// keywordInput2.addEventListener("blur", function (event) {
+//     // Close suggestion list if the click is outside the input or suggestion list
+//     if (!event.relatedTarget || (event.relatedTarget.id !== "suggestionsList2" && event.relatedTarget !== keywordInput2)) {
+//         cityList2.innerHTML = "";
+//     }
+// });
+
+// keywordInput1.addEventListener("blur", videul);
 keywordInput2.addEventListener("input", function () {
     searchCities(keywordInput2, cityList2);
 });
 cityList2.addEventListener("click", function (event) {
     var clickedElement = event.target;
+
     // Vérifiez si l'élément cliqué est une suggestion
     if (clickedElement.tagName === 'LI' && clickedElement.parentNode === cityList2) {
-        var airportCode = clickedElement.textContent.trim().split(':')[1].trim();
-        keywordInput2.value = airportCode;
-        cityList2.innerHTML = "";
+        var airportInfo = clickedElement.textContent;
+
+        // Utilisez une expression régulière pour extraire la ville et le code
+        var match = airportInfo.match(/^(.*),\s*Aéroport\s*:\s*(.*)$/);
+
+        if (match && match.length === 3) {
+            var cityName = match[1].trim();
+            var airportCode = match[2].trim();
+
+            keywordInput2.value = cityName + ", " + airportCode;
+            cityList2.innerHTML = "";
+        }
     }
 });
+// keywordInput2.addEventListener("blur", videul);
+// function handleArrowAndEnter(event, keywordInput, cityList) {
+//     var suggestions = cityList.querySelectorAll('li');
+//     var selectedIndex = Array.from(suggestions).findIndex(suggestion => suggestion.classList.contains('selected'));
+
+//     switch (event.key) {
+//         case 'ArrowUp':
+//             selectedIndex = (selectedIndex - 1 + suggestions.length) % suggestions.length;
+//             break;
+//         case 'ArrowDown':
+//             selectedIndex = (selectedIndex + 1) % suggestions.length;
+//             break;
+//         case 'Enter':
+//             if (selectedIndex !== -1) {
+//                 var selectedElement = suggestions[selectedIndex];
+//                 selectCity(selectedElement, keywordInput, cityList);
+//             }
+//             break;
+//     }
+
+//     // Update the selected item
+//     suggestions.forEach((suggestion, index) => {
+//         suggestion.classList.toggle('selected', index === selectedIndex);
+//     });
+// }
+
+// Event listeners for arrow keys and Enter key
+// keywordInput1.addEventListener('keydown', function (event) {
+//     handleArrowAndEnter(event, keywordInput1, cityList1);
+// });
+
+// keywordInput2.addEventListener('keydown', function (event) {
+//     handleArrowAndEnter(event, keywordInput2, cityList2);
+// });
+// function selectCity(selectedElement, keywordInput, cityList) {
+//     var airportInfo = selectedElement.textContent;
+//     var match = airportInfo.match(/^(.*),\s*Aéroport\s*:\s*(.*)$/);
+
+//     if (match && match.length === 3) {
+//         var cityName = match[1].trim();
+//         var airportCode = match[2].trim();
+
+//         keywordInput.value = cityName + ", " + airportCode;
+//         cityList.innerHTML = "";
+//     }
+// }
+
+// Event listeners to handle mouse click on suggestion items
+// cityList1.addEventListener('click', function (event) {
+//     var clickedElement = event.target;
+//     if (clickedElement.tagName === 'LI' && clickedElement.parentNode === cityList1) {
+//         selectCity(clickedElement, keywordInput1, cityList1);
+//     }
+// });
+
+// cityList2.addEventListener('click', function (event) {
+//     var clickedElement = event.target;
+//     if (clickedElement.tagName === 'LI' && clickedElement.parentNode === cityList2) {
+//         selectCity(clickedElement, keywordInput2, cityList2);
+//     }
+// });
