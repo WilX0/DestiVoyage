@@ -15,12 +15,15 @@ Explorez les options de vols et d'hébergement sans engagement. Visualisez les l
 Consultez vos informations personnelles et accédez à la liste de vos vols favoris.
 
 ## Technologies Utilisées
-OpenWeatherMap : Pour les informations météorologiques en temps réel et locales.
-Leaflet : Une bibliothèque JavaScript pour créer des cartes interactives.
-Amadeus : Intégration de plusieurs APIs Amadeus, y compris la recherche de vols et d'hôtels ainsi que de recommandation de destinations.
+### OpenWeatherMap :
+Pour les informations météorologiques en temps réel et locales.
+### Leaflet :
+Une bibliothèque JavaScript pour créer des cartes interactives.
+### Amadeus : 
+Intégration de plusieurs APIs Amadeus, y compris la recherche de vols et d'hôtels ainsi que de recommandation de destinations.
 
 ## Pour Commencer
-Accès au Site : Ouvrez votre navigateur et visitez [DestVoyage](https://destivoyage.alwaysdata.net/) pour accéder à Desti Voyage.
+Accès au Site : Ouvrez votre navigateur et visitez [DestVoyage](https://destivoyage.alwaysdata.net/) pour accéder à notre site.
 
 ## Assistance
 Besoin d'aide ? Pour toute question ou problème technique, veuillez visiter notre [page de contact](https://votre-site.com/contact).
