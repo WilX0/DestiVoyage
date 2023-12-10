@@ -24,10 +24,10 @@ session_start();
                                     <?php include("navlogin.php"); ?>
                                     <div class="search-container container">
                                         <h1 class="mb-4 text-white">Recommandation de destination</h1>
-                                        <form action="" method="post" class="search-box">
+                                        <form method="post" class="search-box">
                                         <div class="search">
                                             <div class="mb-3">
-                                                <label for="cityCode" class="form-label">Entrer votre dernière destination :</label>
+                                                <label for="keyworde2" class="form-label">Entrer votre dernière destination :</label>
                                                 <input type="text" id="keyworde2" name="cityCode" placeholder="Entrer une ville" required class="form-control">
                                                 <ul id="cityResults" class="list-group"></ul>
                                             </div>
@@ -35,9 +35,9 @@ session_start();
                                             
                                             <input type="submit" id="searchButton" class="btn btn-primary" value="Rechercher">
                                         </div>
-
+                                        </form>
                                     </div>
-                                    </form>
+                                    
                                     <div id="List" class="container">
                                     <ul class="custom-list">
                                         <?php
