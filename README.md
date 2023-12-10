@@ -2,13 +2,13 @@
 
 ## Aperçu
 
-Bienvenue dans Desti Voyage, un projet web développé par l'équipe Cegry Paris Université pour la mineure en développement web. Notre plateforme vise à simplifier le processus de planification de voyages en offrant des fonctionnalités de recherche de vols, d'hôtels, de recommandation de destinations et d'une page utilisateur pour consulter les informations personnelles et les favoris de vols.
+Bienvenue dans Desti Voyage, un projet web développé par l'équipe Cegry Paris Université pour la mineure en développement web. Notre plateforme vise à simplifier le processus de planification de voyages en offrant des fonctionnalités de recherche de vols, d'hôtels, de recommandations de destinations et d'une page utilisateur pour consulter les informations personnelles et les favoris de vols.
 
 ## Fonctionnalités Principales
 ### Recherche de Vols et d'Hôtels : 
 Explorez les options de vols et d'hébergement sans engagement. Visualisez les listes complètes avant de prendre une décision.
 
-### Recommandation de Destinations :
+### Recommandations de Destinations :
  Obtenez des suggestions de destinations similaires à une ville spécifique. Découvrez une liste d'activités autour avec des liens de réservation.
 
 ### Page Utilisateur : 
