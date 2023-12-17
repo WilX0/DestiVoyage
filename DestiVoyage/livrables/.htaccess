@@ -1,0 +1,32 @@
+
+Options +FollowSymlinks
+
+RewriteEngine on
+# Règles de protection des fichiers sensibles
+<FilesMatch "^\.ht">
+    Require all denied
+</FilesMatch>
+
+<FilesMatch "\.(jpg|jpeg|png|gif|css|js)$">
+    Header set Cache-Control "max-age=31536000, public"
+</FilesMatch>
+<FilesMatch "\.(jpg|jpeg|png|gif|css|js)$">
+    ExpiresDefault "access plus 1 year"
+</FilesMatch>
+
+RewriteRule ^accueil index.php [L]
+
+RewriteRule ^connexion pages/connexion.php [L]
+
+RewriteRule ^inscription pages/inscription.php [L]
+
+RewriteRule ^profil$ pages/hello.php [L]
+
+RewriteRule ^destination pages/activite.php [L]
+
+RewriteRule ^hotel pages/hotel3.php [L]
+
+RewriteRule ^contact pages/contact.php [L]
+
+RewriteRule ^vol pages/book1.php [L]
+

@@ -1,0 +1,35 @@
+@import url(https://fonts.googleapis.com/css?family=Berkshire+Swash:regular);
+
+.lanav {
+    background-color: #A1D2E6;
+    top: 3px;
+    width: 100%;
+    z-index: 999;
+}
+
+.mybtns {
+    text-decoration: none;
+    text-transform: none;
+    color: #fff;
+    border-radius: 50px;
+    width: 140px;
+    background-color: #A1D2E6;
+    border: none;
+}
+
+.mybtns:hover {
+    color: black;
+    background-color: #fff;
+}
+
+
+@media(max-width:995.888px) {
+
+    .lanav .collapse {
+        top: 3px;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.484);
+        border-radius: 20px;
+        padding: 10px;
+    }
+}
