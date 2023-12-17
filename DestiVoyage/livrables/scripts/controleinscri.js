@@ -61,7 +61,7 @@ prenom.addEventListener("input", function () {
 function checkLoginAvailability() {
     var xhr = new XMLHttpRequest();
     var username = login.value;
-    xhr.open("GET", "verifier_login.php", true);
+    xhr.open("GET", "../pages/verifier_login.php", true);
     // xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
@@ -96,7 +96,7 @@ function checkLoginAvailability() {
 function checkMailAvailability() {
     var xhr = new XMLHttpRequest();
     var mai = email.value;
-    xhr.open("GET", "check_mail.php", true);
+    xhr.open("GET", "../pages/check_mail.php", true);
     // xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
@@ -219,28 +219,6 @@ function verifierLogin() {
 
 login.addEventListener("input", verifierLogin);
 
-// var dateCourante = new Date();
-// var annee = dateCourante.getFullYear();
-// var mois = (dateCourante.getMonth() + 1).toString().padStart(2, '0');
-// var jour = dateCourante.getDate().toString().padStart(2, '0');
-// var dateFormatee = annee + '-' + mois + '-' + jour;
-
-// var dat = document.getElementById('date');
-// dat.value = dateFormatee;
-// var today = new Date().toISOString().split('T')[0];
-// dat.setAttribute("max", today);
-// dat.addEventListener("input", function () {
-//     var datechoice = new Date(dat.value);
-//     var date2 = new Date();
-//     if (datechoice > date2) {
-
-//         alert("erreur date: date choisie est superieur a la date Courante .Veuillez choisir une autre date svp");
-//         dat.value = dateFormatee;
-//         dat.focus();
-//     }
-
-// });
-// var form = document.getElementById("form");
 
 function formula(event) {
     var log = login.value;
@@ -251,8 +229,7 @@ function formula(event) {
     var confirmPassword = passwordconfirm.value;
     var loginRegex = /^[a-zA-Z0-9-_]{4,20}$/;
     var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-    // var passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*])[a-zA-Z\d!@#$%^&*]{8,}$/;
-    // var passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*])[a-zA-Z\d!@#$%^&*]{8,}$/;
+
     var passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
     var recaptchaResponse = document.getElementById('g-recaptcha-response').value;
 

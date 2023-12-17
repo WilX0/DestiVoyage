@@ -16,17 +16,17 @@ RewriteEngine on
 
 RewriteRule ^accueil index.php [L]
 
-RewriteRule ^connexion connexion.php [L]
+RewriteRule ^connexion pages/connexion.php [L]
 
-RewriteRule ^inscription inscription.php [L]
+RewriteRule ^inscription pages/inscription.php [L]
 
-RewriteRule ^profil$ hello.php [L]
+RewriteRule ^profil$ pages/hello.php [L]
 
-RewriteRule ^destination activite.php [L]
+RewriteRule ^destination pages/activite.php [L]
 
-RewriteRule ^hotel hotel3.php [L]
+RewriteRule ^hotel pages/hotel3.php [L]
 
-RewriteRule ^contact contact.php [L]
+RewriteRule ^contact pages/contact.php [L]
 
-RewriteRule ^vol book1.php [L]
+RewriteRule ^vol pages/book1.php [L]
 

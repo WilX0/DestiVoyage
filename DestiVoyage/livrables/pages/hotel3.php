@@ -9,17 +9,17 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recherche d'Hôtel</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="assets/css/hotel3.css">
-    <link rel="stylesheet" href="assets/css/stylenav.css">
-    <link rel="stylesheet" href="assets/css/stylefooter.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="../Style/hotel3.css">
+    <link rel="stylesheet" href="../Style/stylenav.css">
+    <link rel="stylesheet" href="../Style/stylefooter.css">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
     
 </head>
 
 <body>
 <?php
     if (isset($_SESSION["login"])) {
-            include("navlogin.php");
+            include("../include/navlogin.php");
         } else {
             header("Location: connexion.php");
         }
@@ -76,10 +76,10 @@ session_start();
         </form>
     </div>
     <div id="hotelList"></div>
-    <?php include("lefooter.php"); ?>
+    <?php include("../include/lefooter.php"); ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
     <!-- <script src="hotel.js"></script> -->
-    <script src="assets/js/hoteljsapi.js"></script>
+    <script src="../scripts/hoteljsapi.js"></script>
 
 </body>
 

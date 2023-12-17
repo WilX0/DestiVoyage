@@ -1,6 +1,6 @@
 <nav class="lanav navbar navbar-expand-lg navbar-dark-5-strong">
             <div class="container">
-                <a class="navbar-brand" href="accueil"><img src="images/Logo.png" class="navbar-brand" alt="Logo DestiVoyage" id="idlogo"></a>
+                <a class="navbar-brand" href="accueil"><img src="../images/Logo.png" class="navbar-brand" alt="Logo DestiVoyage" id="idlogo"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>

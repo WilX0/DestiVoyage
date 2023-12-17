@@ -9,7 +9,6 @@ if (isset($_GET['success'])) {
     }
 }
 ?>
-
 <!doctype html>
 <html lang="fr">
   <head>
@@ -19,26 +18,22 @@ if (isset($_GET['success'])) {
     <!-- <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap" rel="stylesheet"> -->
 
     <!-- <link rel="stylesheet" href="fonts/icomoon/style.css"> -->
-
-
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-    
-    
     <!-- Style -->
-    <link rel="stylesheet" type="text/css" href="assets/css/contact.css">
-    <link rel="stylesheet" href="assets/css/stylenav.css">
-    <link rel="stylesheet" href="assets/css/stylefooter.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="../Style/contact.css">
+    <link rel="stylesheet" href="../Style/stylenav.css">
+    <link rel="stylesheet" href="../Style/stylefooter.css">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
 
     <title>Contact </title>
   </head>
   <body>
   <?php
         if (isset($_SESSION["login"])) {
-            include("navlogin.php");
+            include("../include/navlogin.php");
         } else {
-            include("navnotlogin.php");
+            include("../include/navnotlogin.php");
         }
         ?>
   <div class="content">    
@@ -116,7 +111,7 @@ if (isset($_GET['success'])) {
     </div>
 
   </div>
-  <?php  include("lefooter.php");?>
+  <?php  include("../include/lefooter.php");?>
     
   <script>
         document.addEventListener("DOMContentLoaded", function () {

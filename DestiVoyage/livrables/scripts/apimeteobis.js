@@ -1,44 +1,6 @@
-// function obtenirCoordonneesEtMeteo() {
-//     mymap.on('moveend', function () {
-//         var center = mymap.getCenter();
-//         var latitude = center.lat;
-//         var longitude = center.lng;
-//         recevoirtemperatureParCoordonnees(latitude, longitude);
-//     });
-// }
-// function recevoirtemperatureParCoordonnees(latitude, longitude) {
-//     var cleapi = "c0c29e47fa5fa00960b95e425bf6fcf0";
-//     var url = 'https://api.openweathermap.org/data/2.5/weather?lat=' + latitude + '&lon=' + longitude + '&appid=' + cleapi + '&lang=fr&units=metric';
-
-//     let requete = new XMLHttpRequest();
-//     requete.open('GET', url, true);
-//     requete.responseType = "json";
-//     requete.send();
-
-//     requete.onload = function () {
-//         if (requete.readyState == XMLHttpRequest.DONE) {
-//             if (requete.status === 200) {
-//                 var temp = requete.response.main.temp;
-//                 var ville = requete.response.name;
-//                 var pays = requete.response.sys.country;
-//                 var ds = requete.response.weather[0].description;
-//                 var icone = requete.response.weather[0].icon;
-//                 vill.textContent = ville;
-//                 country.textContent = pays;
-//                 descri.textContent = ds;
-//                 ico.src = "https://openweathermap.org/img/wn/" + icone + "@2x.png";
-//                 var tru = temp - 273.15;
-//                 tempe.textContent = tru.toFixed(1) + "°";
-//             } else {
-//                 alert("Il y a une erreur avec AJAX");
-//             }
-//         }
-//     };
-// }
 
 document.addEventListener("DOMContentLoaded", function () {
-    // obtenirCoordonneesEtMeteo();
-    // let ville = "Bejaia";
+
     var vill = document.getElementById("ville");
     var country = document.getElementById("country");
     var ico = document.getElementById("imgmeteo");

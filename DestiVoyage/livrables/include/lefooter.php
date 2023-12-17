@@ -2,7 +2,7 @@
         <div class="container">
             <div class="row">
                 <div class="col text-center">
-                    <img src="images/Logo.png" class="navbar-brand" alt="Logo DestiVoyage" id="logofooter">
+                    <img src="../images/Logo.png" class="navbar-brand" alt="Logo DestiVoyage" id="logofooter">
                 </div>
             </div>
         </div>
@@ -18,7 +18,7 @@
         <div class="container">
             <div class="row">
                 <div class="col text-center">
-                    <a href="https://destivoyagefr.wordpress.com/"><img src="images/wordpress_2.png" alt="icone wordpress"></a>
+                    <a href="https://destivoyagefr.wordpress.com/"><img src="../images/wordpress_2.png" alt="icone wordpress"></a>
                 </div>
             </div>
         </div>

@@ -1,6 +1,4 @@
 
-
-// Fonction pour obtenir un jeton d'accès
 function getAccessToken(clientId, clientSecret, apiUrl) {
     const data = {
         grant_type: "client_credentials",
@@ -17,7 +15,7 @@ function getAccessToken(clientId, clientSecret, apiUrl) {
             const data = JSON.parse(xhr.responseText);
             if (data.access_token) {
                 accessToken = data.access_token;
-                console.log(accessToken);
+                // console.log(accessToken);
                 // Appeler la fonction de recherche de vols après avoir obtenu le jeton d'accès
                 // searchhotel();
             }
@@ -214,30 +212,4 @@ function updateSelection(cityResultsList) {
         cityResultsList[i].classList.toggle("selected", i === selectedIndex);
     }
 }
-// var cityCodeInput = document.getElementById("cityCode");
-// var suggestionsList = document.getElementById("suggestions");
 
-// cityCodeInput.addEventListener("input", function () {
-//     searchCities(cityCodeInput, suggestionsList);
-// });
-// var selectedIndexCity = -1;
-// suggestionsList.addEventListener("click", function (event) {
-//     var clickedElement = event.target;
-
-//     // Check if the clicked element is a suggestion
-//     if (clickedElement.tagName === 'LI' && clickedElement.parentNode === suggestionsList) {
-
-//         var cityInfo = clickedElement.textContent;
-
-//         // Use a regular expression to extract the city and code
-//         var match = cityInfo.match(/^(.*),\s*Code\s*:\s*(.*)$/);
-
-//         if (match && match.length === 3) {
-//             var cityName = match[1].trim();
-//             var cityCode = match[2].trim();
-
-//             cityCodeInput.value = cityName + ", " + cityCode;
-//             suggestionsList.innerHTML = "";
-//         }
-//     }
-// });

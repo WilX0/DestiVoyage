@@ -101,7 +101,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             </div>
         </div>
     </div>
-    <?php include('lefooter.php') ?>
+    <?php include('../include/lefooter.php'); ?>
     <?php
     if (isset($_SESSION['activation_message'])) {
         echo "<script>alert('" . $_SESSION['activation_message'] . "');</script>";

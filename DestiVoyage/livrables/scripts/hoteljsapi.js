@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
         var abonnement = document.getElementById("abo").value;
 
 
-        console.log(hotelId);
+        // console.log(hotelId);
         const url = `https://test.api.amadeus.com/v3/shopping/hotel-offers?hotelIds=${hotelId}&adults=${adults}&checkInDate=${checkinDate}&checkOutDate=${checkoutDate}&roomQuantity=${rooms}&boardType=${abonnement}`;
 
         var xhr = new XMLHttpRequest();

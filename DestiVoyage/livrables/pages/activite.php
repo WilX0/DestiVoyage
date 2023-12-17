@@ -13,10 +13,10 @@ session_start();
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                     <title>Recommandation de destination</title>
                     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-                        <link rel="stylesheet" href="assets/css/stylenav.css">
-                            <link rel="stylesheet" href="assets/css/activite.css">
-                                <link rel="stylesheet" href="assets/css/stylefooter.css">
-                                <link rel="icon" href="favicon.ico" type="image/x-icon">
+                        <link rel="stylesheet" href="../Style/stylenav.css">
+                            <link rel="stylesheet" href="../Style/activite.css">
+                                <link rel="stylesheet" href="../Style/stylefooter.css">
+                                <link rel="icon" href="../favicon.ico" type="image/x-icon">
                                 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
                                 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
                                 </head>
@@ -25,7 +25,7 @@ session_start();
                                 <?php
     if (isset($_SESSION["login"])) {
         // echo $_SESSION["email"];
-            include("navlogin.php");
+            include("../include/navlogin.php");
             
             
         } else {
@@ -250,7 +250,7 @@ session_start();
                                     <?php include("lefooter.php"); ?>
                                     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
                                     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-                                    <script src="ville45.js"></script>
+                                    <script src="../scripts/ville45.js"></script>
                                     
                                 </body>
 

@@ -140,7 +140,7 @@ function getFlightDetails($departure,$destination,$date,$nbradulte,$class,$direc
                 $duree_formatee = $duree->format('%hh%i');
             ?>
             
-            <form id="fo" class="jesuisuneform" method="get" action="insert_fav.php">
+            <form id="fo" class="jesuisuneform" method="get" action="../pages/insert_fav.php">
             <input type="hidden" name="depart" value="<?= $segment['departure']['iataCode']." ".$_SESSION['depart'] ?>">
 <input type="hidden" name="arrivee" value="<?= $segment['arrival']['iataCode']." ".$_SESSION['arr'] ?>">
 <input type="hidden" name="duree" value="<?= $segment['duration'] ?>">
@@ -293,7 +293,7 @@ function getFlightDetailsaller($departure,$destination,$date,$nbradulte,$class) 
                 $duree = new DateInterval($segment['duration']);
                 $duree_formatee = $duree->format('%hh%i');
             ?>
-            <form class="jesuisuneform" method="get" action="insert_fav.php">
+            <form class="jesuisuneform" method="get" action="../pages/insert_fav.php">
             <input type="hidden" name="depart" value="<?= $segment['departure']['iataCode']." ".$_SESSION['depart'] ?>">
 <input type="hidden" name="arrivee" value="<?= $segment['arrival']['iataCode']." ".$_SESSION['arr'] ?>">
 <input type="hidden" name="duree" value="<?= $segment['duration'] ?>">
