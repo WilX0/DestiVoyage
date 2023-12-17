@@ -26,12 +26,12 @@ Intégration de plusieurs APIs Amadeus, y compris la recherche de vols et d'hôt
 Accès au Site : Ouvrez votre navigateur et visitez [DestVoyage](https://destivoyage.alwaysdata.net/) pour accéder à notre site.
 
 ## Assistance
-Besoin d'aide ? Pour toute question ou problème technique, veuillez visiter notre [page de contact](https://votre-site.com/contact).
+Besoin d'aide ? Pour toute question ou problème technique, veuillez visiter notre [page de contact](https://destivoyage.alwaysdata.net/contact).
 
 ## Équipe de Développement
 Desti Voyage est maintenu par une équipe de quatre membres talentueux :
 
-* Mebarki Mohamed Kenzi - @mkenzi06
-* Sfaihi Sabine - @SabineSfh
-* Maibache Louisa - @WilX0
-* Merzougui Melissa - @melmer13
+* MEBARKI Mohamed Kenzi - @mkenzi06
+* SFAIHI Sabine - @SabineSfh
+* MAIBACHE Louisa - @WilX0
+* MERZOUGUI Melissa - @melmer13
